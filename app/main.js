@@ -1,13 +1,20 @@
 //main.js
 import CustomApp from "./CustomApp";
 
+const callBackHandler = (data) =>{
+  debugger
+  console.log("on callback:", data);
+}
+
 const getFileContents = (data) => {
 	var arr = [];
   var str = data.trim();
 	str.replace(/\r?\n/g, '|').replace(/\r/g, '|').split('|').map((item) => {
 		arr.push(item.split(' '));
 	});
-  const app = new CustomApp(arr);
+
+  const app = new CustomApp(arr,callBackHandler);
+
 }
 
 var client = new XMLHttpRequest();

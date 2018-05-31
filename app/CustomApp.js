@@ -1,9 +1,10 @@
 'use strict';
 export default class CustomApp {
 
-	constructor(arr) {
+	constructor(arr, cb) {
 		this.arr = arr;
 		this.start(this.arr);
+		this.callback = cb;
 	};
 
 	start(array) {
@@ -59,13 +60,27 @@ export default class CustomApp {
 
 	//generate console output
 	draw() {
+		let cb = this.callback;
+		let output = '';
+		let outputHTML = '<p>';
 		for (var i = 0; i < this.arr.length; i++) {
-			let line = '';
+			output += '\n';
+			outputHTML += '<br/>';
 			for (var n = 0; n < this.arr[i].length; n++) {
-				line += this.arr[i][n] + " ";
+				output += this.arr[i][n] + " ";
+				outputHTML += this.arr[i][n]+ " ";
 			}
-			console.log(line.toString().toUpperCase());
 		}
+
+		var isFunc = typeof cb === "function";
+
+		if (typeof cb === "function") {
+			cb(output);
+		}
+
+		outputHTML += "</p>"
+		document.getElementById("info").innerHTML=outputHTML;
+		console.log(output.toString().toUpperCase());
 	};
 
 }
