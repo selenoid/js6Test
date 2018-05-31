@@ -81,30 +81,32 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = "./app/main.js");
 /******/ })
 /************************************************************************/
 /******/ ({
+
+/***/ "./app/CustomApp.js":
+/*!**************************!*\
+  !*** ./app/CustomApp.js ***!
+  \**************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return CustomApp; });\n\n\nclass CustomApp {\n\n\tconstructor(arr) {\n\t\tconsole.log('CustomApp instance created...');\n\t\tthis.arr = arr;\n\t\tthis.start(this.arr);\n\t}\n\n\tstart(array) {\n\t\t// traversing the cells in the  hashmap\n\t\tfor (var i = 0; i < array.length; i++) {\n\t\t\tfor (var n = 0; n < array[i].length; n++) {\n\t\t\t\tvar totals = this.addItems(this.calculateNeighbours({\n\t\t\t\t\tx: n,\n\t\t\t\t\ty: i\n\t\t\t\t}));\n\t\t\t\tthis.arr[i][n] = totals > 0 ? totals : this.arr[i][n];\n\t\t\t}\n\t\t}\n\n\t\tthis.draw();\n\t}\n\n\t//get the mines around the selected cell\n\tcalculateNeighbours(cell) {\n\t\tconst cValue = this.getCValue(cell.y, cell.x);\n\n\t\t//return if the cell is a mine.\n\t\tif (cValue === \"X\") return [];\n\n\t\tlet i, j;\n\t\tlet data = [];\n\n\t\tfor (i = cell.y - 1; i <= cell.y + 1; i++) {\n\t\t\tif (i < 0 || i >= this.arr.length) continue;\n\t\t\tfor (j = cell.x - 1; j <= cell.x + 1; j++) {\n\t\t\t\tif (j < 0 || j >= this.arr[0].length) continue;\n\t\t\t\tdata.push(this.getCValue(i, j));\n\t\t\t}\n\t\t}\n\t\treturn data;\n\t}\n\n\t//getting the sum of the neighbouring cells that are mines\n\taddItems(items) {\n\t\tlet count = 0;\n\t\tfor (var i = 0; i < items.length; i++) {\n\t\t\tcount += items[i] === \"X\" ? 1 : 0;\n\t\t}\n\t\treturn count;\n\t}\n\n\t//retrieve the value of the cell in the hash, with the index id [i][j] .\n\tgetCValue(i, j) {\n\t\treturn this.arr[i][j].toString().toUpperCase();\n\t}\n\n\t//generate console output\n\tdraw() {\n\t\tfor (var i = 0; i < this.arr.length; i++) {\n\t\t\tlet line = '';\n\t\t\tfor (var n = 0; n < this.arr[i].length; n++) {\n\t\t\t\tline += this.arr[i][n] + \" \";\n\t\t\t}\n\t\t\tconsole.log(line.toString().toUpperCase());\n\t\t}\n\t}\n}\n\n//# sourceURL=webpack:///./app/CustomApp.js?");
+
+/***/ }),
 
 /***/ "./app/main.js":
 /*!*********************!*\
   !*** ./app/main.js ***!
   \*********************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-eval("//main.js\r\n\r\nconsole.log('Inside mainss.js');\r\n\n\n//# sourceURL=webpack:///./app/main.js?");
-
-/***/ }),
-
-/***/ 0:
-/*!***************************!*\
-  !*** multi ./app/main.js ***!
-  \***************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-eval("module.exports = __webpack_require__(/*! ./app/main.js */\"./app/main.js\");\n\n\n//# sourceURL=webpack:///multi_./app/main.js?");
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _CustomApp__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CustomApp */ \"./app/CustomApp.js\");\n//main.js\n\n\nlet sArr = [['x', 'O', 'O', 'x', 'X', 'x', 'O', 'O'], ['O', 'O', 'O', 'O', 'X', 'O', 'X', 'x'], ['X', 'X', 'O', 'X', 'X', 'O', 'O', 'O'], ['O', 'X', 'O', 'O', 'O', 'X', 'X', 'X'], ['O', 'o', 'X', 'X', 'X', 'X', 'O', 'x'], ['X', 'O', 'X', 'x', 'X', 'O', 'x', 'O'], ['O', 'O', 'O', 'X', 'O', 'X', 'O', 'X'], ['X', 'O', 'X', 'x', 'O', 'X', 'O', 'x']];\n\nconst app = new _CustomApp__WEBPACK_IMPORTED_MODULE_0__[\"default\"](sArr);\n\n//# sourceURL=webpack:///./app/main.js?");
 
 /***/ })
 
