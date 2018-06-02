@@ -6,7 +6,7 @@ Please pre-execute a small test task using ES6 +.
 Given a file with a lattice N x N (separators space and \ n),
  which is a minefield from the Minesweeper game. O - means that
  there is no mine on the field, X - that is. It is necessary to
- replace all O by the number of adjacent mines 
+ replace all O by the number of adjacent mines
  (all adjacent cells 8 - horizontally, vertically and diagonally).
 
 Example:
@@ -33,4 +33,5 @@ X 3 X X X 5 X 3
 2 4 5 X 6 X 5 X
 X 2 X X 4 X 4 X
 
-Put your decision on github and send, please, the link to the leader of the IT team: karasev.alexey@gmail.com. Try to make the task as clear as possible. Good luck!
+Put your decision on github and send, please, the link to the leader of the IT
+ team: karasev.alexey@gmail.com. Try to make the task as clear as possible. Good luck!

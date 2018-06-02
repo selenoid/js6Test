@@ -65,10 +65,10 @@ export default class CustomApp {
 		let outputHTML = '<p>';
 		for (var i = 0; i < this.arr.length; i++) {
 			output += '\n';
-			outputHTML += '<br/>';
+			//outputHTML += '<br/>';
 			for (var n = 0; n < this.arr[i].length; n++) {
 				output += this.arr[i][n] + " ";
-				outputHTML += this.arr[i][n]+ " ";
+				//outputHTML += this.arr[i][n]+ " ";
 			}
 		}
 
@@ -79,7 +79,7 @@ export default class CustomApp {
 		}
 
 		outputHTML += "</p>"
-		document.getElementById("info").innerHTML=outputHTML;
+		//document.getElementById("info").innerHTML=outputHTML;
 		console.log(output.toString().toUpperCase());
 	};
 
